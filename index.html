@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+
+<html lang="zh">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小蓝塾价目表</title>
+    <style>
+        body{
+            font-family: "Noto Sans SC", sans-serif;
+        }
+
+        .pricing-table{
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-left: 35px;     
+            margin-right: 35px;   
+        }
+
+        .plan{
+            background-color: #EEF5FF;
+            border-radius: 20px;
+            height: 70vh;
+            min-height: 495px;
+            max-height: 630px;
+            flex: 1;
+            text-align: center; 
+            min-width: 250px; 
+            position: relative;         
+        }
+
+        .plan-head{
+            color: white;
+            padding: 20px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+        .a{
+            background: linear-gradient(-30deg, #5356FF, #378CE7, #67C6E3, #DFF5FF);
+        }
+
+        .b{
+            background: linear-gradient(-30deg, #472183, #4B56D2, #82C3EC);
+        }
+
+        .c{
+            background: linear-gradient(-30deg, #051367, #2D31FA, #5D8BF4);
+        }
+
+        .category{
+            font-size: 18pt;
+            font-family: "Montserrat", sans-serif;
+            font-weight: bolder;
+            letter-spacing: 8px;
+        }
+
+        .head-line{
+            margin: 5px 0;
+            height: 2px;
+            background: linear-gradient(90deg, white,white);
+        }
+
+        .title{
+            font-weight: bold;
+            font-size: 15pt;
+            letter-spacing: 5px;
+        }
+
+        .plan-price{
+            margin: 30px 20px;
+            position: relative;
+        }
+
+        .number{
+            font-weight: 1000;
+            font-size: 44pt;
+            display: inline-block;
+            position: relative;
+        }
+
+        .unit{
+            font-size: 16pt;
+            font-weight: 800;
+            display: inline-block;
+            width: max-content;
+            position: absolute;
+            left: 110%;
+            bottom: 10%;
+        }
+
+        .c + .plan-price > .number{
+            font-size: 35pt;
+            right: 5px;
+        }
+        .c + .plan-price .unit{
+            font-size: 11pt;
+            left: 100%;
+        }
+
+        .price-line{
+            margin-top: 10px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent 33.3%, #378CE7 0, calc(100% - 33.3% - 7%), #A9A9A9 calc(100% - 33.3%), transparent 0)
+        }
+
+        #b{
+            background: linear-gradient(90deg, transparent 33.3%, #472183 0, calc(100% - 33.3% - 7%), #A9A9A9 calc(100% - 33.3%), transparent 0)
+        }
+
+        #c{
+            background: linear-gradient(90deg, transparent 33.3%, #2D31FA 0, calc(100% - 33.3% - 7%), #A9A9A9 calc(100% - 33.3%), transparent 0)
+        }
+
+        .plan-description{
+            margin-top: 3vh;
+            position: relative;
+        }
+
+        ul{
+            width: 90%;
+            position: absolute;
+            left: 5%;
+            right: 5%;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            color: #31363F;
+        }
+
+        li{
+            margin: 0;
+            margin-bottom: 10px;
+        }
+
+        .price-foot{
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            position: absolute;
+            bottom: 8%;
+        }
+
+        button{
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            font-size: 13pt;
+            font-weight: 500;
+            letter-spacing: 2pt;
+            border-radius: 50px;
+        }
+
+        .A{
+            background: linear-gradient(-20deg, #378CE7, #67C6E3, calc(100% - 10px), #DFF5FF);
+        }
+
+        .B{
+            background: linear-gradient(-20deg, #472183, #4B56D2, calc(100% - 10px), #82C3EC);
+        }
+
+        .C{
+            background: linear-gradient(-20deg, #051367, #2D31FA, calc(100% - 10px), #5D8BF4);
+        }
+
+        .point{
+            font-weight: bold;
+            color: #0E46A3;
+        }
+
+        @media(max-width:820px){
+            .pricing-table{
+                margin-left: 5px;
+                margin-right: 5px;
+                gap: 3px;
+            }
+
+            .plan{
+                min-width: 0;
+            }
+        }
+        @media (max-width:435px){
+            .pricing-table{
+                flex-direction: column;
+                height: 100%;
+                width: 100vw;
+                margin: 5vh 0;
+                gap: 5vh;
+                align-items: center;
+            }
+
+            .plan{
+                border-radius: 20px;
+                max-height: 130px;
+                width: 90vw;
+                flex: 0 0 130px;
+                display: flex;
+                min-height: auto;
+                min-width: 334px;
+            }
+
+            .plan *{
+                position: static;
+            }
+
+            .plan-head{
+                border-radius: 20px 0px 0px 20px;
+                writing-mode: vertical-lr;
+                flex: 0 0 0;
+                padding: 5px;
+            }
+
+            .category{
+                font-size: 8pt;
+                text-orientation: upright;
+                letter-spacing: 0.5px;
+            }
+           
+            .head-line{
+                margin: 0;
+                height: 100%;
+                width: 1px;
+                background: linear-gradient(white, white);
+            }
+
+            .title{
+                letter-spacing: 3.75px;
+                font-size: 6.5pt;
+                margin-left: 4.25px;
+            }
+
+            .plan-price{
+                margin: 10px 15px;
+                flex: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+            }
+
+            .number, .c + .plan-price > .number{
+                text-align: center;
+                vertical-align: center;
+                position: relative;
+                font-size: 22pt;
+            }
+
+            .c + .plan-price > .number{
+                font-size: 17.5pt;
+                right: 7.5px;
+            }
+
+            .unit, .c+ .plan-price .unit {
+                position: absolute;
+                right: -30%;
+                left: auto;
+                font-size: 7pt;
+                top: 85%;
+                bottom: auto;
+            }
+
+            .c+ .plan-price .unit{
+                font-size: 5.5pt;
+                right: -25%;
+            }
+
+            .price-line{
+                margin: 0;
+                height: 200%;
+                width: 1px;
+                position: absolute;
+                left: 140%;
+                top: 50%;
+                bottom: auto;
+                transform: translate(0,-50%);
+                background: linear-gradient(transparent 33.3%, #378CE7 0, calc(100% - 33.3% - 7%), #A9A9A9 calc(100% - 33.3%), transparent 0)
+            }
+
+            #b{
+                background: linear-gradient(transparent 33.3%, #472183 0, calc(100% - 33.3% - 7%), #A9A9A9 calc(100% - 33.3%), transparent 0)
+            }
+
+            #c{
+                left: 120%;
+                background: linear-gradient(transparent 33.3%, #2D31FA 0, calc(100% - 33.3% - 7%), #A9A9A9 calc(100% - 33.3%), transparent 0)
+            }
+
+            .plan-description{
+                margin: 0 1.5vw;
+                flex: 1;
+                display: flex;
+                height: 100%;
+                align-items: center;
+                min-width: 124px;
+            }
+
+            .plan ul{
+                font-size: x-small;
+                width: 100%;
+                flex: 1;
+                padding-top: 5px;
+            }
+
+            li{
+                width: 100%;
+                margin-bottom: 5px;
+            }
+
+            .price-foot{
+                flex-direction: column;
+                flex: 0;
+                margin-right: 3%;
+            }
+
+            button{
+                writing-mode: vertical-rl;
+                padding: 10px 5px;
+                font-size: 7.5pt;
+                letter-spacing: 1pt;
+                border-radius: 25px;
+            }
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Color+Emoji&family=Noto+Sans+SC:wght@100..900&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="pricing-table">
+        <div class="plan">
+            <div class="plan-head a">
+                <div class="category">EJU</div>
+                <div class="head-line"></div>
+                <div class="title">文科小班</div>
+            </div>
+            <div class="plan-price">
+                <div class="number">27
+                    <div class="unit">万日元</div>
+                </div> 
+                <div class="price-line" id="a"></div>
+            </div>
+            <div class="plan-description">
+                <ul>
+                    <li>&#9875 90小时文数+90小时文综</li>
+                    <li>&#9875 全套知识点讲解+真题练习</li>
+                    <li>&#9875 20周，<span class="point">0基础直达高分段</span></li>
+                </ul>
+            </div>
+            <div class="price-foot">
+                <button class="A">
+                    现在购买
+                </button>
+            </div>
+            
+            
+        </div>
+        <div class="plan">
+            <div class="plan-head b">
+                <div class="category">EJU</div>
+                <div class="head-line"></div>
+                <div class="title">理科小班</div>
+            </div>
+            <div class="plan-price">
+                <div class="number">29
+                    <div class="unit">万日元</div>
+                </div> 
+                <div class="price-line" id="b"></div>
+            </div>
+            <div class="plan-description">
+                <ul>
+                    <li>&#9875 90小时数学+90小时物理+90小时化学</li>
+                    <li>&#9875 全套知识点讲解+真题练习</li>
+                    <li>&#9875 30周，<span class="point">0基础直达高分段</span></li>
+                </ul>
+            </div>
+            <div class="price-foot">
+                <button class="B">
+                    现在购买
+                </button>
+            </div>
+        </div>
+        <div class="plan">
+            <div class="plan-head c">
+                <div class="category">EJU</div>
+                <div class="head-line"></div>
+                <div class="title">一对一</div>
+            </div>
+            <div class="plan-price">
+                <div class="number">7000
+                    <div class="unit">日元/小时</div>
+                </div> 
+                <div class="price-line" id="c"></div>
+            </div>
+            <div class="plan-description">
+                <ul>
+                    <li>&#9875 个性化定制内容，哪里不会讲哪里</li>
+                    <li>&#9875 灵活时间安排</li>
+                    <li class="point">&#9875 短期快速提高</li>
+                </ul>
+            </div>
+            <div class="price-foot">
+                <button class="C">
+                    现在购买
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
